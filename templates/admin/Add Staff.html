@@ -1,0 +1,65 @@
+{% extends 'admin/adminindex1.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="/add_staff_post" method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+<table width="200" border="1" class="table table-bordered">
+  <tr>
+    <th scope="row">Name</th>
+    <td><label for="textfield6"></label>
+      <input type="text" name="textfield" id="textfield6" required /></td>
+  </tr>
+  <tr>
+    <th scope="row">Image</th>
+    <td><label for="fileField"></label>
+      <input type="file" name="fileField" id="fileField" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Phone No.</th>
+    <td><label for="textfield"></label>
+      <input type="tel" name="textfield3" id="textfield" required /></td>
+  </tr>
+  <tr>
+    <th scope="row">Address</th>
+    <td><label for="textarea"></label>
+      <textarea name="textarea" id="textarea" cols="45" rows="5" required></textarea></td>
+  </tr>
+    <tr>
+    <th scope="row">Gender</th>
+    <td><p>
+      <label>
+        <input type="radio" name="RadioGroup1" value="male" id="RadioGroup1_0" />
+        Male</label>
+      <br />
+      <label>
+        <input type="radio" name="RadioGroup1" value="female" id="RadioGroup1_1" />
+        Female</label>
+      <br />
+      <label>
+        <input type="radio" name="RadioGroup1" value="other" id="RadioGroup1_2" />
+        Other</label>
+      <br />
+    </p></td>
+  </tr>
+  <tr>
+    <th scope="row">E -Mail</th>
+    <td><label for="textfield2"></label>
+      <input type="email" name="textfield4" id="textfield2" pattern="[^ @]*@[^ @]*" required /></td>
+  </tr>
+
+  <tr>
+    <td align="center" colspan="2" scope="row"><input type="submit" name="button" id="button" value="Add" /></td>
+    </tr>
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

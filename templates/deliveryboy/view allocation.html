@@ -1,0 +1,33 @@
+{% extends 'deliveryboy/delivery_home.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><table width="200" border="2" class="table table-bordered">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Product</th>
+    <th scope="col">Username</th>
+    <th scope="col">Address</th>
+    <th scope="col">Contact no</th>
+    <th scope="col">&nbsp;</th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;<a href="/deliver_view_product/{{ i.ORDER.id }}#hom" class="btn btn-success" >View product details</a></td>
+    <td>&nbsp;{{ i.ORDER.CUSTOMER.C_name }}</td>
+    <td>&nbsp;{{ i.ORDER.CUSTOMER.C_place }}<br>{{ i.ORDER.CUSTOMER.C_post }}<br>{{ i.ORDER.CUSTOMER.C_pin }}</td>
+        <td>&nbsp;{{ i.ORDER.CUSTOMER.C_phn }}</td>
+    <td><a href="/update_delivery_status/{{ i.ORDER.id }}#hom" class="btn btn-success">update status</a></td>
+  </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
+{% endblock %}

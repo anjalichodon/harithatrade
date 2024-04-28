@@ -1,0 +1,48 @@
+{% extends 'admin/adminindex1.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="/edit_product_post/{{ data.id }}" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+<table width="200" border="1" class="table table-bordered">
+  <tr>
+    <th scope="row">Product</th>
+    <td><label for="textfield6"></label>
+      <input type="text" name="textfield" id="textfield6" value="{{ data.P_name }}"/></td>
+  </tr>
+
+  <tr>
+    <th scope="row">Sub Category</th>
+    <td><label for="select2"></label>
+      <select name="select2" id="select2">
+          {% for i in data1 %}
+          <option value="{{ i.id }}">{{ i.name }}</option>
+          {% endfor %}
+      </select></td>
+  </tr>
+  <tr>
+    <th scope="row">Image</th>
+     <td><label for="fileField"></label>
+      <input type="file" name="fileField" id="fileField" /><img src="{{ data.P_image }}" alt="" width="30px" height="30px"/></td>
+  </tr>
+
+  <tr>
+    <th scope="row">Price</th>
+    <td><label for="textfield2"></label>
+      <input type="number" name="textfield2" id="textfield2" value="{{ data.Price }}" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" scope="row" align="center"><input type="submit" name="button" id="button" value="Update" /></td>
+    </tr>
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

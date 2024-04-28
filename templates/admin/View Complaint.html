@@ -1,0 +1,49 @@
+{% extends 'admin/adminindex1.html' %}
+{% block body %}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="get" action="">
+
+<table width="200" border="1" class="table table-bordered">
+  <tr>
+    <th scope="col">S.No.</th>
+    <th scope="col">Date</th>
+    <th scope="col">Complaint</th>
+        <th scope="col">Customer</th>
+    <th scope="col">Reply</th>
+    <th scope="col">Reply Date</th>
+
+  </tr>
+    {% for i in datacmp %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.Cmplnt_date }}</td>
+    <td>{{ i.Cmplnt }}</td>
+       <td>{{ i.CUSTOMER.C_name }} <br>  {{ i.CUSTOMER.C_email }} <br>{{ i.CUSTOMER.C_phn }} </td>
+      {% if i.Cmplt_reply == "pending" %}
+    <td colspan="2"><a href="/sent_reply/{{ i.id }}#hom" class="btn btn-outline-success">Reply</a></td>
+     {% else %}
+    <td>{{ i.Cmplt_reply }}</td>
+    <td>{{ i.Reply_date }}</td>
+      {% endif %}
+  </tr>
+{% endfor %}
+</table>
+
+
+</form>
+</body>
+</html>
+
+
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'admin/adminindex1.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="" method="get">
+<table width="200" border="1"  class="table table-bordered">
+  <tr>
+    <th scope="col">S.No</th>
+    <th scope="col">Image</th>
+    <th scope="col">Name</th>
+    <th scope="col">Address</th>
+    <th scope="col">Ph.No</th>
+    <th scope="col">Gender</th>
+    <th scope="col">Email</th>
+    <th scope="col">&nbsp;</th>
+  </tr>
+    {%  for i in datasf %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td><img src="{{ i.E_image }}" height="30px" width="30px"></td>
+    <td>{{ i.E_name }}</td>
+    <td>{{ i.E_address }}</td>
+    <td>{{ i.E_phn}}</td>
+    <td>{{ i.gender}}</td>
+    <td>{{ i.E_email}}</td>
+    <td><a href="/edit_staff/{{ i.id }}#hom" class="btn btn-outline-success">Edit</a>&nbsp;
+ 		<a href="/delete_staff_post/{{ i.id }}" class="btn btn-outline-success">Remove</a>
+     </td>
+  </tr>
+    {% endfor %}
+</table>
+
+</form>
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'staff/staff_home.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="" method="get">
+<table width="200" border="1" class="table table-bordered" >
+  <tr>
+    <th scope="col">S.No.</th>
+    <th scope="col">Product</th>
+    <th scope="col">Category</th>
+    <th scope="col">Sub Category</th>
+    <th scope="col">Image</th>
+    <th scope="col">Price</th>
+    <th scope="col">Total Quantity</th>
+{#    <th scope="col">&nbsp;</th>#}
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.PRODUCT.P_name }}</td>
+    <td>{{ i.PRODUCT.SUB_CATEGORY.CATEGORY.name }}</td>
+    <td>{{ i.PRODUCT.SUB_CATEGORY.name }}</td>
+    <td><img src="{{ i.PRODUCT.P_image }}" height="30px" width="30px"></td>
+    <td>{{ i.PRODUCT.Price }}</td>
+    <td>{{ i.S_quantity }}</td>
+{#    <td><a href="/edit_stock/{{ i.id }}#hom" class="btn btn-outline-success">Edit</a><br>#}
+{#        <a href="/delete_stock/{{ i.id }}" class="btn btn-outline-success">Delete</a>#}
+{#    </td>#}
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

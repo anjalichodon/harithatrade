@@ -1,0 +1,29 @@
+{% extends 'admin/adminindex1.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered" >
+    <tr>
+      <th>#</th>
+      <th>Rating</th>
+      <th align="center">User Name</th>
+      <th>Product</th>
+      <th>Date</th>
+    </tr>
+      {% for i in data %}
+      <td>&nbsp;{{ loop.index }}</td>
+      <td >
+                <img src="{{ i.rating.0 }}" width="20" height="20">
+                <img src="{{ i.rating.1}}" width="20" height="20">
+                <img src="{{i.rating.2}}" width="20" height="20">
+                <img src="{{i.rating.3}}" width="20" height="20">
+                <img src="{{i.rating.4}}" width="20" height="20">
+            </td>
+         <td>{{ i.user }}</td>
+          <td>{{i.product }}<img src="{{ i.pimage }}" height="30px" width="30px"></td>
+          <td>{{ i.date }}</td>
+
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+{% endblock %}
